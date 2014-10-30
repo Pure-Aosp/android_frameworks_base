@@ -1476,9 +1476,7 @@ public class KeyguardHostView extends KeyguardViewBase {
         ensureTransportPresentOrRemoved(state);
         int pageToShow = getAppropriateWidgetPage(state);
         mAppWidgetContainer.setCurrentPage(pageToShow);
-        final int state = mTransportState;
         final boolean transportAdded = ensureTransportPresentOrRemoved(state);
-        final int pageToShow = getAppropriateWidgetPage(state);
         if (!transportAdded) {
             mAppWidgetContainer.setCurrentPage(pageToShow);
         } else if (state == TRANSPORT_VISIBLE) {
@@ -1487,7 +1485,6 @@ public class KeyguardHostView extends KeyguardViewBase {
             post(new Runnable() {
                 @Override
                 public void run() {
-                    mAppWidgetContainer.setCurrentPage(pageToShow);
                 }
             });
         }
